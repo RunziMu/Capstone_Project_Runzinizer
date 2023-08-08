@@ -1,0 +1,36 @@
+<mat-toolbar style="background-color: rgb(98, 172, 90);">
+  <mat-toolbar-row>
+    <a href="#">
+      <h4 style="color: aliceblue; font-family: 'Playfair Display', serif;">Runziner</h4>
+    </a>
+    <button mat-button (click)="opened=!opened"><mat-icon
+        style="color: rgb(255, 252, 252); padding-left: 5px;">menu</mat-icon></button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidebar-container">
+  <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-list class="sidebar-list">
+      <mat-list-item><a routerLink="/register"
+          routerLinkActive="active-tab"><mat-icon>supervised_user_circle</mat-icon>Register</a></mat-list-item>
+      <mat-list-item><a routerLink="/login"
+          routerLinkActive="active-tab"><mat-icon>https</mat-icon>Login</a></mat-list-item>
+      <mat-list-item><a routerLink="/profile"
+          routerLinkActive="active-tab"><mat-icon>account_circle</mat-icon>Profile</a></mat-list-item>
+      <mat-list-item><a routerLink="/home"
+          routerLinkActive="active-tab"><mat-icon>home</mat-icon>Home</a></mat-list-item>
+      <mat-list-item><a routerLink="/search"
+          routerLinkActive="active-tab"><mat-icon>search</mat-icon>Search</a></mat-list-item>
+      <mat-list-item><a routerLink="/report"
+          routerLinkActive="active-tab"><mat-icon>assignment</mat-icon>Report</a></mat-list-item>
+    </mat-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <!-- <div class="intro-text">
+      <p>Welcome to Runziner</p>
+      <h3>Navigate to sidebar to login or register a new account</h3>
+    </div> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

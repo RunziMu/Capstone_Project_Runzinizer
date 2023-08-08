@@ -1,0 +1,36 @@
+<div class="row" style="margin-top: 10px;">
+  <div class="col-4 offset-4">
+    <!-- <h1 *ngIf="isEdit; else createTaskTitle" style="text-align: center;">Edit Transaction</h1>
+    <ng-template #createTaskTitle> -->
+    <h1 style="text-align: center; font-weight: lighter;">Add Income</h1>
+    <!-- </ng-template> -->
+    <form [formGroup]="incomeForm"
+      style="border: solid 1px gray; border-radius: 10px; padding: 20px; margin-top: 20px;background-color: rgb(255, 255, 255);">
+
+      <!-- <div class="mb-3">
+        <label class="form-label">Category</label>
+        <input type="number" class="form-control" formControlName="cate_id">
+      </div> -->
+
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" rows="3" formControlName="description"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Amount</label>
+        <input type="number" class="form-control" formControlName="amount">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Income Date</label>
+        <input type="datetime-local" class="form-control" formControlName="income_date">
+      </div>
+
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" [disabled]="incomeForm.invalid"
+          (click)="onSubmit()">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
