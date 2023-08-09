@@ -1,1 +1,48 @@
-<p>expense works!</p>
+<div style="width:50%; margin: auto; font-weight: lighter;" class="recent_trans">
+  <p class="title">Your Expenses:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <!-- <th scope="col">Category</th> -->
+        <th scope="col">Description</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let expense_item of expense">
+      <tr>
+        <!-- <td>{{expense_item.id}}</td> -->
+        <td>{{expense_item.description}}</td>
+        <td>${{expense_item.amount}}</td>
+        <td>{{expense_item.expense_date| date}}</td>
+      </tr>
+    </tbody>
+    <p>Your total expense: <span style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
+    <button type="button" class="btn btn-primary" routerLink="/add-expense" routerLinkActive="active">Add
+      Expense</button>
+  </table>
+  <p class="title">Your Income:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <!-- <th scope="col">Category</th> -->
+        <th scope="col">Description</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let income_item of income">
+      <tr>
+        <!-- <td>{{income_item.cate_id}}</td> -->
+        <td>{{income_item.description}}</td>
+        <td>${{income_item.amount}}</td>
+        <td>{{income_item.income_date| date}}</td>
+      </tr>
+    </tbody>
+    <p>Your total Income: <span style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
+    <button type="button" class="btn btn-primary" routerLink="/add-income" routerLinkActive="active">Add Income</button>
+  </table>
+  <hr>
+  <p>Total Balance: <span
+      [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">${{calculateBalance()}}</span></p>
+</div>

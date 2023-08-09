@@ -9,7 +9,7 @@
         <th scope="col">Date</th>
       </tr>
     </thead>
-    <tbody *ngFor="let expense_item of expense | slice:0:5">
+    <tbody *ngFor="let expense_item of expense | slice:-5">
       <tr>
         <!-- <td>{{expense_item.id}}</td> -->
         <td>{{expense_item.description}}</td>
@@ -18,9 +18,8 @@
       </tr>
     </tbody>
     <p>Your total expense: <span style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
-    <button type="button" class="btn btn-primary" routerLink="/add-expense" routerLinkActive="active">Add
-      Expense</button>
-    <button type="button" class="btn btn-primary" routerLink="/view-expense" routerLinkActive="active">View All</button>
+    <!-- <button type="button" class="btn btn-primary" routerLink="/add-expense" routerLinkActive="active">Add
+      Expense</button> -->
   </table>
   <p class="title">Your Recent Income:</p>
   <table class="table">
@@ -32,7 +31,7 @@
         <th scope="col">Date</th>
       </tr>
     </thead>
-    <tbody *ngFor="let income_item of income | slice:0:5">
+    <tbody *ngFor="let income_item of income | slice:-5">
       <tr>
         <!-- <td>{{income_item.cate_id}}</td> -->
         <td>{{income_item.description}}</td>
@@ -41,9 +40,10 @@
       </tr>
     </tbody>
     <p>Your total Income: <span style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
-    <button type="button" class="btn btn-primary" routerLink="/add-income" routerLinkActive="active">Add Income</button>
+    <!-- <button type="button" class="btn btn-primary" routerLink="/add-income" routerLinkActive="active">Add Income</button> -->
   </table>
   <hr>
   <p>Total Balance: <span
       [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">${{calculateBalance()}}</span></p>
+  <button type="button" class="btn btn-primary" routerLink="/view-expense" routerLinkActive="active">View All</button>
 </div>

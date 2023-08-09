@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthguardService } from './services/authguard.service';
 import { TransactionFormComponent } from './components/transaction-form/transaction-form.component';
 import { IncomeFormComponent } from './components/income-form/income-form.component';
+import { ExpenseComponent } from './components/expense/expense.component';
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthguardService] },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'add-expense', component: TransactionFormComponent },
   { path: 'add-income', component: IncomeFormComponent },
   { path: 'edit-expense', component: TransactionFormComponent },
+  { path: 'view-expense', component: ExpenseComponent },
 ];
 
 @NgModule({
