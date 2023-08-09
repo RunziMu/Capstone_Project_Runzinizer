@@ -28,6 +28,7 @@ export class IncomeFormComponent {
       next: (result) => {
         alert('New income was created successfully');
         this.incomeForm.reset();
+        window.location.reload();
       },
       error: (err) => {
         console.log(err);

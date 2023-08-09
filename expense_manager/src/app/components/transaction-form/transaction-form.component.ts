@@ -56,6 +56,7 @@ export class TransactionFormComponent {
       next: (result) => {
         alert('New expense was created successfully');
         this.transactionForm.reset();
+        window.location.reload();
       },
       error: (err) => {
         console.log(err);
