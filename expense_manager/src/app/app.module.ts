@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { TransactionFormComponent } from './components/transaction-form/transaction-form.component';
 import { IncomeFormComponent } from './components/income-form/income-form.component';
 import { ExpenseComponent } from './components/expense/expense.component';
+import { EditTransactionFormComponent } from './components/edit-transaction-form/edit-transaction-form.component';
 
 
 
@@ -35,6 +36,7 @@ import { ExpenseComponent } from './components/expense/expense.component';
     TransactionFormComponent,
     IncomeFormComponent,
     ExpenseComponent,
+    EditTransactionFormComponent,
   ],
   imports: [
     BrowserModule,
