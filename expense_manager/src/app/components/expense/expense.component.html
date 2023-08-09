@@ -1,6 +1,6 @@
 <div style="width:50%; margin: auto; font-weight: lighter;" class="recent_trans">
   <p class="title">Your Expenses:</p>
-  <table class="table">
+  <table class="table rounded-table">
     <thead>
       <tr>
         <!-- <th scope="col">Category</th> -->
@@ -16,23 +16,26 @@
         <td>${{expense_item.amount}}</td>
         <td>{{expense_item.expense_date| date}}</td>
         <td>
-          <button type="button" class="btn btn-warning" routerLink="/edit-transaction" routerLinkActive="active">Edit</button>
-          <button type="button" class="btn btn-primary delete-button" routerLink="#" routerLinkActive="active">Delete</button>
+          <button type="button" class="btn btn-warning" [routerLink]="['/edit-transaction/',expense_item.id]"
+            routerLinkActive="active">Edit</button>
+          <button type="button" class="btn btn-primary delete-button" routerLink="#"
+            routerLinkActive="active">Delete</button>
         </td>
       </tr>
     </tbody>
     <p>Your total expense: <span style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
-    <button type="button" class="btn btn-success" routerLink="/add-expense" routerLinkActive="active">Add
+    <button type="button" class="btn btn-success" routerLink="/add-expense" routerLinkActive="active" style="margin-left: 5px;">Add
       Expense</button>
   </table>
   <p class="title">Your Income:</p>
-  <table class="table">
+  <table class="table rounded-table">
     <thead>
       <tr>
         <!-- <th scope="col">Category</th> -->
         <th scope="col">Description</th>
         <th scope="col">Amount</th>
         <th scope="col">Date</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody *ngFor="let income_item of income">
@@ -41,10 +44,16 @@
         <td>{{income_item.description}}</td>
         <td>${{income_item.amount}}</td>
         <td>{{income_item.income_date| date}}</td>
+        <td>
+          <button type="button" class="btn btn-warning" [routerLink]="[]"
+            routerLinkActive="active">Edit</button>
+          <button type="button" class="btn btn-primary delete-button" routerLink="#"
+            routerLinkActive="active">Delete</button>
+        </td>
       </tr>
     </tbody>
     <p>Your total Income: <span style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
-    <button type="button" class="btn btn-success" routerLink="/add-income" routerLinkActive="active">Add Income</button>
+    <button type="button" class="btn btn-success" routerLink="/add-income" routerLinkActive="active" style="margin-left: 5px;">Add Income</button>
   </table>
   <hr>
   <p style="font-size: 18px;">Total Balance: <span
