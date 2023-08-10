@@ -26,4 +26,8 @@ export class ExpenseService {
     const url = `${this.apiUrl}/expense/filter?cate_id=${categoryId}`;
     return this.http.get<Iexpense[]>(url);
   }
+  deleteExpense(expenseId: number): Observable<void> {
+    const url = `${this.apiUrl}/expense/${expenseId}`;
+    return this.http.delete<void>(url);
+  }
 }

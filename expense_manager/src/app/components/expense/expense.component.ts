@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Iexpense } from 'src/app/interfaces/iexpense';
 import { Iincome } from 'src/app/interfaces/iincome';
@@ -51,5 +51,33 @@ export class ExpenseComponent {
       categoryTotals.push({ category, totalExpense });
     });
     return categoryTotals;
+  }
+  deleteExpense(expenseId: number): void {
+    if (confirm('Are you sure you want to delete this expense?')) {
+      this.expenseService.deleteExpense(expenseId).subscribe(
+        () => {
+          console.log('Expense deleted successfully');
+          // Update the expenses list after deletion
+          this.expense = this.expense.filter(expense => expense.id !== expenseId);
+        },
+        (error) => {
+          console.error('Error deleting expense', error);
+        }
+      );
+    }
+  }
+  deleteIncome(incomeId: number): void {
+    if (confirm('Are you sure you want to delete this income?')) {
+      this.incomeService.deleteIncome(incomeId).subscribe(
+        () => {
+          console.log('Income deleted successfully');
+          // Update the incomes list after deletion
+          this.income = this.income.filter(expense => expense.id !== incomeId);
+        },
+        (error) => {
+          console.error('Error deleting income', error);
+        }
+      );
+    }
   }
 }

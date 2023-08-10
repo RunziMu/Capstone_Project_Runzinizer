@@ -1,5 +1,5 @@
 <div style="width:50%; margin: auto; font-weight: lighter;" class="recent_trans">
-  <p class="title">Your Recent Expenses:</p>
+  <p class="title">Recent Expenses:</p>
   <table class="table rounded-table">
     <thead>
       <tr>
@@ -17,11 +17,11 @@
         <td>{{expense_item.expense_date| date}}</td>
       </tr>
     </tbody>
-    <p>Your total expense: <span style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
+    <p>Total expense: <span style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
     <!-- <button type="button" class="btn btn-primary" routerLink="/add-expense" routerLinkActive="active">Add
       Expense</button> -->
   </table>
-  <p class="title">Your Recent Income:</p>
+  <p class="title">Recent Income:</p>
   <table class="table rounded-table">
     <thead>
       <tr>
@@ -39,11 +39,11 @@
         <td>{{income_item.income_date| date}}</td>
       </tr>
     </tbody>
-    <p>Your total Income: <span style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
+    <p>Total Income: <span style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
     <!-- <button type="button" class="btn btn-primary" routerLink="/add-income" routerLinkActive="active">Add Income</button> -->
   </table>
   <hr>
-  <p>Total Balance: <span
+  <p style="font-size: 18px;">Total Balance: <span
       [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">${{calculateBalance()}}</span></p>
   <button type="button" class="btn btn-primary" routerLink="/view-expense" routerLinkActive="active">View All</button>
 </div>
