@@ -45,5 +45,5 @@
   <hr>
   <p style="font-size: 18px;">Total Balance: <span
       [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">${{calculateBalance()}}</span></p>
-  <button type="button" class="btn btn-primary" routerLink="/view-expense" routerLinkActive="active">View All</button>
+  <button type="button" class="btn btn-primary" routerLink="/view-expense" routerLinkActive="active" style="margin-bottom: 50px;">View All</button>
 </div>

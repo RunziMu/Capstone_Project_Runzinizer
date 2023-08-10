@@ -49,3 +49,11 @@ mat-list-item {
   padding-top: 330px;
 }
 
+#footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: rgb(98, 172, 90);
+  margin-top: 40px;
+  color: white;
+  font-family: 'Playfair Display', serif;
+}
