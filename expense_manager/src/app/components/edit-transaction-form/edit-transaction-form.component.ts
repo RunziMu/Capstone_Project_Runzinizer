@@ -26,7 +26,7 @@ export class EditTransactionFormComponent {
       expenseService.getTheExpense(this.editId).subscribe({
         next: (result) => {
           console.log(result);
-          this.editTransactionForm.patchValue(result); // Populate form with task data
+          this.editTransactionForm.patchValue(result); // Populate data
         }
       })
     }
@@ -44,7 +44,7 @@ export class EditTransactionFormComponent {
   editExpense() {
     this.expenseService.updateExpense(this.editTransactionForm.value, this.editId).subscribe({
       next: (result) => {
-        alert('Task was updated successfully');
+        alert('Expense was updated successfully');
         this.editTransactionForm;
       },
       error: (err) => {

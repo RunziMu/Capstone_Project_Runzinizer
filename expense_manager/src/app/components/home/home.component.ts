@@ -10,7 +10,7 @@ import { IncomeService } from 'src/app/services/income.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent{
+export class HomeComponent {
   @Input() expense!: Iexpense[];
   @Input() income!: Iincome[];
   constructor(private expenseService: ExpenseService, private route: ActivatedRoute, private incomeService: IncomeService) {

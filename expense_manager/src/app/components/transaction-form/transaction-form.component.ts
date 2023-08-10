@@ -12,8 +12,6 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class TransactionFormComponent {
   transactionForm: FormGroup;
-  // isEdit: boolean = false;
-  // editId: number = 0;
   constructor(private fb: FormBuilder, private expenseService: ExpenseService, private incomeService: IncomeService, private userService: UserService, private route: ActivatedRoute) {
     this.transactionForm = fb.group({
       user_id: ['1'],
@@ -22,30 +20,7 @@ export class TransactionFormComponent {
       amount: ['', [Validators.required]],
       expense_date: ['', [Validators.required]],
     });
-    // let expenseId = route.snapshot.paramMap.get('expense_id');
-    // console.log(expenseId);
-
-    // Edit mode
-    // if (expenseId !== null) {
-    //   this.isEdit = true;
-    //   this.editId = parseInt(expenseId);
-    //   // Get task from DB and pre-populate form with the data
-    //   expenseService.getTheExpense(this.editId).subscribe({
-    //     next: (result) => {
-    //       this.transactionForm.patchValue(result); // Populate form with task data
-    //     }
-    //   })
-    // }
   }
-
-  // onSubmit() {
-  //   console.log(this.transactionForm.value);
-  //   if (this.isEdit) {
-  //     this.editExpense();
-  //   } else {
-  //     this.createExpense();
-  //   }
-  // }
 
   onSubmit() {
     this.createExpense();
@@ -64,18 +39,5 @@ export class TransactionFormComponent {
       }
     });
   }
-
-  // editExpense() {
-  //   this.expenseService.updateExpense(this.transactionForm.value, this.editId).subscribe({
-  //     next: (result) => {
-  //       alert('Task was updated successfully');
-  //       this.transactionForm;
-  //     },
-  //     error: (err) => {
-  //       console.log(err);
-  //       alert('Something went wrong');
-  //     }
-  //   });
-  // }
 }
 

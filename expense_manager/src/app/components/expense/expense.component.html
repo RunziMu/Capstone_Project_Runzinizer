@@ -46,9 +46,10 @@
         <td>${{income_item.amount}}</td>
         <td>{{income_item.income_date| date}}</td>
         <td>
-          <button type="button" class="btn btn-warning" [routerLink]="[]" routerLinkActive="active">Edit</button>
+          <button type="button" class="btn btn-warning" [routerLink]="['/edit-income/',income_item.id]"
+            routerLinkActive="active">Edit</button>
           <button type="button" class="btn btn-primary delete-button"
-          (click)="deleteIncome(income_item.id)">Delete</button>
+            (click)="deleteIncome(income_item.id)">Delete</button>
         </td>
       </tr>
     </tbody>

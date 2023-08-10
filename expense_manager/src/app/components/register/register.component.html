@@ -1,30 +1,32 @@
 <form [formGroup]="registerForm" (ngSubmit)="register()">
 
   <div class="mb-3">
-      <label class="form-label">First Name</label>
-      <input type="text" class="form-control" formControlName="first_name">
+    <label class="form-label">First Name</label>
+    <input type="text" class="form-control" formControlName="first_name">
   </div>
 
   <div class="mb-3">
-      <label class="form-label">Last Name</label>
-      <input type="text" class="form-control" formControlName="last_name">
+    <label class="form-label">Last Name</label>
+    <input type="text" class="form-control" formControlName="last_name">
   </div>
 
   <div class="mb-3">
-      <label class="form-label">Email</label>
-      <input type="email" class="form-control" formControlName="email">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" formControlName="email">
   </div>
 
   <div class="mb-3">
-      <label class="form-label">Password</label>
-      <input type="password" class="form-control" formControlName="password">
+    <label class="form-label">Password</label>
+    <input type="password" class="form-control" formControlName="password">
   </div>
 
   <div class="mb-3">
     <label class="form-label">Upload your profile picture (Optional)</label>
-    <input type="file" class="form-control" (change)="onChange($event)" accept="image/png,image/jpeg" style="font-weight: lighter;">
+    <input type="file" class="form-control" (change)="onChange($event)" accept="image/png,image/jpeg"
+      style="font-weight: lighter;">
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid" style="font-weight: lighter;">Sign Up</button>
+  <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid" style="font-weight: lighter;">Sign
+    Up</button>
 
 </form>

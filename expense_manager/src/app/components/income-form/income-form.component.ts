@@ -19,11 +19,11 @@ export class IncomeFormComponent {
       amount: ['', [Validators.required]],
       income_date: ['', [Validators.required]],
     })
-   }
-   onSubmit(){
+  }
+  onSubmit() {
     this.createIncome();
-   }
-   createIncome(){
+  }
+  createIncome() {
     this.incomeService.createIncome(this.incomeForm.value).subscribe({
       next: (result) => {
         alert('New income was created successfully');
@@ -35,5 +35,5 @@ export class IncomeFormComponent {
         alert('Something went wrong');
       }
     })
-   }
+  }
 }

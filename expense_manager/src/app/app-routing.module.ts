@@ -11,6 +11,7 @@ import { TransactionFormComponent } from './components/transaction-form/transact
 import { IncomeFormComponent } from './components/income-form/income-form.component';
 import { ExpenseComponent } from './components/expense/expense.component';
 import { EditTransactionFormComponent } from './components/edit-transaction-form/edit-transaction-form.component';
+import { EditIncomeFormComponent } from './components/edit-income-form/edit-income-form.component';
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthguardService] },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'edit-expense', component: TransactionFormComponent },
   { path: 'view-expense', component: ExpenseComponent },
   { path: 'edit-transaction/:expense_id', component: EditTransactionFormComponent },
+  { path: 'edit-income/:income_id', component: EditIncomeFormComponent },
 ];
 
 @NgModule({
