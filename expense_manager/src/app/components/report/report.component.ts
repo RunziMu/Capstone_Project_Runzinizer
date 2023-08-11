@@ -13,10 +13,13 @@ import { IncomeService } from 'src/app/services/income.service';
 export class ReportComponent {
   @Input() income!: Iincome[];
   @Input() expense!: Iexpense[];
+  categoryTotals: { [categoryId: number]: number } = {};
+  // categoryTotals: { [categoryId: number]: { name: string; total: number } } = {};
   constructor(private incomeService: IncomeService, private route: ActivatedRoute, private expenseService: ExpenseService) {
     expenseService.getExpense().subscribe({
       next: (results) => {
         this.expense = results;
+        this.calculateCategoryTotals();
       },
       error: (err) => {
         console.log(err);
@@ -25,6 +28,7 @@ export class ReportComponent {
     incomeService.getIncome().subscribe({
       next: (results) => {
         this.income = results;
+        this.calculateCategoryTotals();
       },
       error: (err) => {
         console.log(err);
@@ -39,5 +43,16 @@ export class ReportComponent {
   }
   calculateBalance(): number {
     return this.income.reduce((total, item) => total + item.amount, 0) - this.expense.reduce((total, item) => total + item.amount, 0);
+  }
+  calculateCategoryTotals(): void {
+    this.categoryTotals = {};
+    // Calculate total expenses for each category
+    for (const expense of this.expense) {
+      if (this.categoryTotals[expense.cate_id]) {
+        this.categoryTotals[expense.cate_id] += expense.amount;
+      } else {
+        this.categoryTotals[expense.cate_id] = expense.amount;
+      }
+    }
   }
 }

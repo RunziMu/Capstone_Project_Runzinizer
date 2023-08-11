@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'view-income', component:IncomeComponent },
   { path: 'edit-transaction/:expense_id', component: EditTransactionFormComponent },
   { path: 'edit-income/:income_id', component: EditIncomeFormComponent },
+  { path: 'search/:categoryId', component: SearchComponent },
 ];
 
 @NgModule({
