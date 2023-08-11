@@ -1,0 +1,54 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.title {
+  font-size: 18px;
+}
+
+.recent_trans p {
+  font-weight: bold;
+}
+
+.positive {
+  color: green;
+  font-weight: bold;
+}
+
+.negative {
+  color: red;
+  font-weight: bold;
+}
+
+.recent_trans {
+  padding-top: 50px;
+}
+
+.actions-column {
+  display: flex;
+  align-items: center;
+}
+
+.btn-gap {
+  width: 50px;
+  /* Adjust the gap width as needed */
+}
+
+.delete-button {
+  background-color: #dc3545;
+  /* Apply desired color for delete button */
+  border-color: #dc3545;
+  margin-left: 10px;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+.rounded-table {
+  border-radius: 10px; /* Adjust the border radius value as needed */
+  overflow: hidden; /* Ensure content within rounded corners is properly contained */
+}
+
+

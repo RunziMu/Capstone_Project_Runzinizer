@@ -23,16 +23,19 @@
         </td>
       </tr>
     </tbody>
-    <p>Your total expense: <span style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
+    <br>
+    <p style="font-size: 16px;">Your total expense: <span style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
+    <hr>
+    <button type="button" class="btn btn-primary" routerLink="/home" routerLinkActive="active"
+      style="margin-left: 5px;">Back</button>
     <button type="button" class="btn btn-success" routerLink="/add-expense" routerLinkActive="active"
       style="margin-left: 5px;">Add
       Expense</button>
   </table>
-  <p class="title">Your Income:</p>
+  <!-- <p class="title">Your Income:</p>
   <table class="table rounded-table">
     <thead>
       <tr>
-        <!-- <th scope="col">Category</th> -->
         <th scope="col">Description</th>
         <th scope="col">Amount</th>
         <th scope="col">Date</th>
@@ -41,7 +44,6 @@
     </thead>
     <tbody *ngFor="let income_item of income">
       <tr>
-        <!-- <td>{{income_item.cate_id}}</td> -->
         <td>{{income_item.description}}</td>
         <td>${{income_item.amount}}</td>
         <td>{{income_item.income_date| date}}</td>
@@ -59,5 +61,5 @@
   </table>
   <hr>
   <p style="font-size: 18px;">Total Balance: <span
-      [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">${{calculateBalance()}}</span></p>
+      [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">${{calculateBalance()}}</span></p> -->
 </div>

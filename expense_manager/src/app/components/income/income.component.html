@@ -1,0 +1,35 @@
+<div style="width:50%; margin: auto; font-weight: lighter;" class="recent_trans">
+  <p class="title">Your Income:</p>
+  <table class="table rounded-table">
+    <thead>
+      <tr>
+        <!-- <th scope="col">Category</th> -->
+        <th scope="col">Description</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let income_item of income">
+      <tr>
+        <!-- <td>{{income_item.cate_id}}</td> -->
+        <td>{{income_item.description}}</td>
+        <td>${{income_item.amount}}</td>
+        <td>{{income_item.income_date| date}}</td>
+        <td>
+          <button type="button" class="btn btn-warning" [routerLink]="['/edit-income/',income_item.id]"
+            routerLinkActive="active">Edit</button>
+          <button type="button" class="btn btn-primary delete-button"
+            (click)="deleteIncome(income_item.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+    <br>
+    <p style="font-size: 16px;">Your total Income: <span style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
+    <hr>
+    <button type="button" class="btn btn-primary" routerLink="/home" routerLinkActive="active"
+      style="margin-left: 5px;">Back</button>
+    <button type="button" class="btn btn-success" routerLink="/add-income" routerLinkActive="active"
+      style="margin-left: 5px;">Add Income</button>
+  </table>
+</div>
