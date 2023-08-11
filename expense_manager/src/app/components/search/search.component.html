@@ -23,14 +23,19 @@
         <tr>
           <th scope="col">Description</th>
           <th scope="col">Amount</th>
+          <th scope="col">Date</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let expense of expenses">
           <td>{{ expense.description }}</td>
-          <td>{{ expense.amount }}</td>
+          <td>${{ expense.amount }}</td>
+          <td>{{expense.expense_date| date}}</td>
         </tr>
       </tbody>
+      <hr>
+      <p style="font-weight: bold;">Overall: <span
+          style="color: salmon; font-weight: bold; font-size: 16px;">${{calculateTotalAmount()}}</span></p>
     </table>
   </div>
   <ng-template #noExpensesMessage>

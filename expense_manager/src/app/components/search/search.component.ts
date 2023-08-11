@@ -31,7 +31,6 @@ export class SearchComponent implements OnInit {
       this.expenses = [];
       return;
     }
-
     this.expenseService.getExpensesByCategoryId(this.selectedCategoryId).subscribe(
       (data: any) => {
         this.expenses = data;
@@ -40,6 +39,13 @@ export class SearchComponent implements OnInit {
         console.error('Error:', error);
       }
     );
+  }
+  calculateTotalAmount(): number {
+    let totalAmount = 0;
+    for (const expense of this.expenses) {
+      totalAmount += expense.amount;
+    }
+    return totalAmount;
   }
 }
 
