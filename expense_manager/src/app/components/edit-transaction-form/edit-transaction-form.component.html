@@ -4,9 +4,27 @@
     <form [formGroup]="editTransactionForm"
       style="border: solid 1px gray; border-radius: 10px; padding: 20px; margin-top: 20px;background-color: rgb(255, 255, 255);">
 
-      <div class="mb-3">
+      <!-- <div class="mb-3">
         <label class="form-label">Category</label>
         <input type="number" class="form-control" formControlName="cate_id">
+      </div> -->
+      <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select class="form-select" aria-label="Default select example" formControlName="cate_id">
+          <option selected disabled>Open this select menu</option>
+          <option value="1">Housing</option>
+          <option value="2">Transportation</option>
+          <option value="3">Food & Groceries</option>
+          <option value="4">healthcare</option>
+          <option value="5">Personal care</option>
+          <option value="6">Entertainment</option>
+          <option value="7">Debts & Loans</option>
+          <option value="8">Savings & Investments</option>
+          <option value="9">Education</option>
+          <option value="10">Gifts & Donations</option>
+          <option value="11">Travel</option>
+          <option value="12">Utilities</option>
+        </select>
       </div>
 
       <div class="mb-3">
@@ -31,6 +49,7 @@
       </div>
     </form>
     <br>
-    <button type="button" class="btn btn-primary" routerLink="/view-expense" routerLinkActive="active" style="margin-bottom: 200px;">Back</button>
+    <button type="button" class="btn btn-primary" routerLink="/view-expense" routerLinkActive="active"
+      style="margin-bottom: 200px;">Back</button>
   </div>
 </div>
