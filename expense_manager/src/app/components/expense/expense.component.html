@@ -3,7 +3,7 @@
   <table class="table rounded-table">
     <thead>
       <tr>
-        <!-- <th scope="col">Category</th> -->
+        <th scope="col">Category</th>
         <th scope="col">Description</th>
         <th scope="col">Amount</th>
         <th scope="col">Date</th>
@@ -12,6 +12,7 @@
     </thead>
     <tbody *ngFor="let expense_item of expense">
       <tr>
+        <td>{{expense_item.cate_id}}</td>
         <td>{{expense_item.description}}</td>
         <td>${{expense_item.amount}}</td>
         <td>{{expense_item.expense_date| date}}</td>

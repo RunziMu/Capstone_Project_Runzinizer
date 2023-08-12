@@ -188,11 +188,13 @@ app.get('/expense', function (req, res) {
     });
 });
 
-// Filter Expense by Category http://localhost:3000/filter?cate_id=3
+// Filter Expense by Category http://localhost:3000/expense/filter?cate_id=3
 app.get('/expense/filter', function (req, res) {
     let data = {
         include: [Category],
-        where: { cate_id: req.params.cate_id }
+        where: {
+            cate_id: req.params.cate_id,
+        }
     };
     if (req.query.cate_id !== undefined) {
         data.where.cate_id = req.query.cate_id;
@@ -200,6 +202,7 @@ app.get('/expense/filter', function (req, res) {
     Expense.findAll(data)
         .then((results) => {
             res.status(200).send(results);
+            console.log(results.cate_name);
         })
         .catch((err) => {
             res.status(500).send(err);

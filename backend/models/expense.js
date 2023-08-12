@@ -15,6 +15,10 @@ const Expense = config.define('expense', {
         type: Sequelize.INTEGER,
         allowNull: false,
     },
+    // expense_cate_name: {
+    //     type: Sequelize.STRING,
+    //     allowNull: false,
+    // },
     description: {
         type: Sequelize.STRING,
         allowNull: true,
