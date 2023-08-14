@@ -14,7 +14,7 @@ export class ExpenseService {
     return this.http.get<Iexpense[]>('http://localhost:3000/expense');
   }
   getTheExpense(expenseId: number){
-    return this.http.get<Iexpense>(`http://localhost:3000/expense/${expenseId}`);
+    return this.http.get<Iexpense>(`http://localhost:3000/expenses/${expenseId}`);
   }
   createExpense(formData: any) {
     return this.http.post<Iexpense>('http://localhost:3000/expense', formData);

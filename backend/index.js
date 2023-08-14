@@ -218,7 +218,7 @@ app.post('/expense', function (req, res) {
     });
 })
 
-// Get expense with category by user_id.
+// Get expense with category by user_id
 app.get('/expense/:user_id', function (req, res) {
     let data = {
         include: [User, Category],
@@ -231,6 +231,17 @@ app.get('/expense/:user_id', function (req, res) {
     });
 });
 
+// Get expense by expense_id
+app.get('/expenses/:expense_id', function (req, res) {
+    let expenseId = req.params.expense_id;
+    Expense.findByPk(expenseId).then((result) => {
+        res.status(200).send(result);
+    }).catch((err) => {
+        res.status(500).send(err);
+    });
+})
+
+// Update expense by expense_id
 app.put('/expense/:expense_id', function (req, res) {
     let expenseId = req.params.expense_id;
     Expense.findByPk(expenseId).then((result) => {
@@ -307,6 +318,16 @@ app.get('/income/:user_id', function (req, res) {
         res.status(500).send(err);
     });
 });
+
+// Get income by income_id. 
+app.get('/incomes/:income_id', function (req, res) {
+    let incomeId = req.params.income_id;
+    Income.findByPk(incomeId).then((result) => {
+        res.status(200).send(result);
+    }).catch((err) => {
+        res.status(500).send(err);
+    });
+})
 
 app.put('/income/:income_id', function (req, res) {
     let incomeId = req.params.income_id;

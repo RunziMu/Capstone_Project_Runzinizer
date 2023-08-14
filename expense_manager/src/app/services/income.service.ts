@@ -14,7 +14,7 @@ export class IncomeService {
     return this.http.get<Iincome[]>('http://localhost:3000/income');
   }
   getTheIncome(incomeId: number){
-    return this.http.get<Iincome>(`http://localhost:3000/income/${incomeId}`);
+    return this.http.get<Iincome>(`http://localhost:3000/incomes/${incomeId}`);
   }
   createIncome(formData: any) {
     return this.http.post<Iincome>('http://localhost:3000/income', formData)
