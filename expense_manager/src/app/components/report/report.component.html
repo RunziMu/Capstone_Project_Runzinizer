@@ -32,7 +32,7 @@
 
 <br>
 
-<div>
+<!-- <div>
   <h1>Category Report</h1>
   <div class="category-list">
     <div class="card" style="width: 18rem;" *ngFor="let category of categoryTotals | keyvalue">
@@ -43,66 +43,28 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<br>
-<h1>Category Table</h1>
-<table class="table category-table rounded-table">
-  <thead>
-    <tr>
-      <th scope="col">Category id</th>
-      <th scope="col">Category</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Housing</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Transportation</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Food & Groceries</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Healthcare</td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>Personal care</td>
-    </tr>
-    <tr>
-      <th scope="row">6</th>
-      <td>Entertainment</td>
-    </tr>
-    <tr>
-      <th scope="row">7</th>
-      <td>Debts & Loans</td>
-    </tr>
-    <tr>
-      <th scope="row">8</th>
-      <td>Savings & Investments</td>
-    </tr>
-    <tr>
-      <th scope="row">9</th>
-      <td>Education</td>
-    </tr>
-    <tr>
-      <th scope="row">10</th>
-      <td>Gifts & Donations</td>
-    </tr>
-    <tr>
-      <th scope="row">11</th>
-      <td>Travel</td>
-    </tr>
-    <tr>
-      <th scope="row">12</th>
-      <td>Utilities</td>
-    </tr>
-  </tbody>
-</table>
-<br>
+<div>
+  <h1>Expense Report</h1>
+  <table class="table category-table rounded-table">
+    <thead>
+      <tr>
+        <!-- <th scope="col">Category id</th> -->
+        <th scope="col">Category</th>
+        <th scope="col">Total Amount</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let categoryTotal of calculateCategoryTotals()">
+      <tr>
+        <!-- <td>{{ categoryTotal.category }}</td> -->
+        <td>{{ getCategoryName(categoryTotal.category) }}</td>
+        <td>${{ categoryTotal.totalExpense }}</td>
+        <td><a [routerLink]="['/search', categoryTotal.category]">
+        <button class="btn btn-primary">Details</button></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

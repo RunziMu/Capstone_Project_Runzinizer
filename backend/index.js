@@ -180,8 +180,19 @@ app.get('/category/:cate_id', function (req, res) {
     });
 })
 
+// app.get('/expense', function (req, res) {
+//     Expense.findAll().then((results) => {
+//         res.status(200).send(results);
+//     }).catch((err) => {
+//         res.status(500).send(err);
+//     });
+// });
+
 app.get('/expense', function (req, res) {
-    Expense.findAll().then((results) => {
+    let data = {
+        include: [Category],
+    }
+    Expense.findAll(data).then((results) => {
         res.status(200).send(results);
     }).catch((err) => {
         res.status(500).send(err);
