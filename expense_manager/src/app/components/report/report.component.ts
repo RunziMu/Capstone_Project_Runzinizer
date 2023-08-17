@@ -89,6 +89,7 @@ export class ReportComponent {
       this.calculatePercentage(categoryTotal.totalExpense)
     ));
 
+
     let insights = "";
 
     if (balance > 0) {
