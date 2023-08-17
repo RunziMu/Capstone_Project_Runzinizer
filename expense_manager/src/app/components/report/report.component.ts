@@ -11,7 +11,7 @@ import { IncomeService } from 'src/app/services/income.service';
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
-export class ReportComponent{
+export class ReportComponent {
   @Input() income!: Iincome[];
   @Input() expense!: Iexpense[];
 
@@ -61,7 +61,63 @@ export class ReportComponent{
       const totalExpense = categoryExpenses.reduce((total, item) => total + item.amount, 0);
       categoryTotals.push({ category, totalExpense });
     });
-
     return categoryTotals;
   }
+
+  calculatePercentage(totalExpense: number): number {
+    const total = this.calculateExpenseTotal();
+    if (total === 0) {
+      return 0;
+    }
+    return (totalExpense / total) * 100;
+  }
+
+  isHighestPercentage(index: number): boolean {
+    const percentages = this.calculateCategoryTotals().map(categoryTotal =>
+      this.calculatePercentage(categoryTotal.totalExpense)
+    );
+    const highestPercentage = Math.max(...percentages);
+
+    return percentages[index] === highestPercentage;
+  }
+
+  getInsightsAndSuggestions(): string {
+    const totalExpense = this.calculateExpenseTotal();
+    const totalIncome = this.calculateIncomeTotal();
+    const balance = this.calculateBalance();
+    const highestPercentage = Math.max(...this.calculateCategoryTotals().map(categoryTotal =>
+      this.calculatePercentage(categoryTotal.totalExpense)
+    ));
+
+    let insights = "";
+
+    if (balance > 0) {
+      insights += "Congratulations! You have a positive balance, which means you're managing your finances well. ";
+    } else if (balance < 0) {
+      insights += "Your expenses have exceeded your income. It's important to review your spending habits and consider making adjustments. ";
+    } else {
+      insights += "Your expenses are in line with your income. Keep monitoring your financial situation to ensure it stays balanced. ";
+    }
+
+    if (highestPercentage > 0) {
+      insights += `Your highest expense category is <strong class="highlighted-category">${this.getCategoryName(this.findCategoryWithHighestExpense())} (${highestPercentage.toFixed(0)}%)</strong>. Consider reviewing your spending in this category.`;
+    }
+
+    return insights;
+  }
+
+  findCategoryWithHighestExpense(): number {
+    let highestCategory = -1;
+    let highestAmount = 0;
+
+    this.calculateCategoryTotals().forEach(categoryTotal => {
+      if (categoryTotal.totalExpense > highestAmount) {
+        highestAmount = categoryTotal.totalExpense;
+        highestCategory = categoryTotal.category;
+      }
+    });
+
+    return highestCategory;
+  }
+
 }

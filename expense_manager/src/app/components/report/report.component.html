@@ -1,11 +1,11 @@
 <br>
-<h1>Expense Report</h1>
+<!-- <p class="expense-report">Expense Report</p> -->
 <div class="expense-list">
   <div>
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h2 class="card-title">Total Income</h2>
-        <h1 style="color: green; font-weight: lighter;">${{calculateIncomeTotal()}}</h1>
+        <h1 style="color: green;">${{calculateIncomeTotal()}}</h1>
         <a routerLink="/view-income"><button class="btn btn-primary">View all</button></a>
       </div>
     </div>
@@ -14,7 +14,7 @@
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h2 class="card-title">Total Expense</h2>
-      <h1 style="color: salmon; font-weight: lighter;">${{calculateExpenseTotal()}}</h1>
+      <h1 style="color: salmon; ">${{calculateExpenseTotal()}}</h1>
       <a routerLink="/view-expense"><button class="btn btn-primary">View all</button></a>
     </div>
   </div>
@@ -31,23 +31,33 @@
 </div>
 <br>
 <div>
-  <h1>Expense Report</h1>
+  <!-- <h1>Expense Report</h1> -->
+  <br>
   <table class="table category-table rounded-table">
     <thead>
       <tr>
         <th scope="col">Category</th>
         <th scope="col">Total Amount</th>
+        <th scope="col">Percentage</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
-    <tbody *ngFor="let categoryTotal of calculateCategoryTotals()">
+    <tbody *ngFor="let categoryTotal of calculateCategoryTotals() let i = index"
+      [ngClass]="{'highest-percentage-row': isHighestPercentage(i)}">
       <tr>
         <td>{{ getCategoryName(categoryTotal.category) }}</td>
         <td>${{ categoryTotal.totalExpense }}</td>
+        <td>{{ calculatePercentage(categoryTotal.totalExpense) | number:'1.0-0' }}%</td>
         <td><a [routerLink]="['/search', categoryTotal.category]">
-        <button class="btn btn-primary">Details</button></a>
+            <button class="btn btn-primary">Details</button></a>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
+<br>
+<br>
+<div>
+  <!-- <h1>Insights and Suggestions</h1> -->
+  <p class="insights" [innerHTML]="getInsightsAndSuggestions()"></p>
 </div>

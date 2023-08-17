@@ -23,9 +23,8 @@ import { ExpenseComponent } from './components/expense/expense.component';
 import { EditTransactionFormComponent } from './components/edit-transaction-form/edit-transaction-form.component';
 import { EditIncomeFormComponent } from './components/edit-income-form/edit-income-form.component';
 import { IncomeComponent } from './components/income/income.component';
-
-
-
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +40,7 @@ import { IncomeComponent } from './components/income/income.component';
     EditTransactionFormComponent,
     EditIncomeFormComponent,
     IncomeComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +54,8 @@ import { IncomeComponent } from './components/income/income.component';
     MatListModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgApexchartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

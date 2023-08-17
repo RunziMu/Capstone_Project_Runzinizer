@@ -13,6 +13,7 @@ import { ExpenseComponent } from './components/expense/expense.component';
 import { EditTransactionFormComponent } from './components/edit-transaction-form/edit-transaction-form.component';
 import { EditIncomeFormComponent } from './components/edit-income-form/edit-income-form.component';
 import { IncomeComponent } from './components/income/income.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthguardService] },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'edit-transaction/:expense_id', component: EditTransactionFormComponent },
   { path: 'edit-income/:income_id', component: EditIncomeFormComponent },
   { path: 'search/:categoryId', component: SearchComponent },
+  { path: 'pie-chart', component: PieChartComponent },
 ];
 
 @NgModule({
