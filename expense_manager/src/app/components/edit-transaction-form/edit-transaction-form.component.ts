@@ -11,6 +11,7 @@ import { ExpenseService } from 'src/app/services/expense.service';
 export class EditTransactionFormComponent {
   editTransactionForm: FormGroup;
   editId: number = 0;
+  
   constructor(private expenseService: ExpenseService, private fb: FormBuilder, private route: ActivatedRoute) {
     this.editTransactionForm = fb.group({
       user_id: ['1'],

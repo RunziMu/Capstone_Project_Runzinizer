@@ -22,7 +22,7 @@ export class LoginComponent {
 
     this.userService.loginUser(formData).subscribe({
       next: (result) => {
-        localStorage.setItem("currentUser", JSON.stringify(result)); //Store the user data on our browser
+        localStorage.setItem("currentUser", JSON.stringify(result)); 
         alert('Welcome Back!');
         window.location.reload();
       },

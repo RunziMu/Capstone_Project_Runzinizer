@@ -3,12 +3,8 @@
     <h1 style="text-align: center;">Edit Expense</h1>
     <form [formGroup]="editTransactionForm"
       style="border: solid 1px gray; border-radius: 10px; padding: 20px; margin-top: 20px;background-color: rgb(255, 255, 255);">
-
-      <!-- <div class="mb-3">
-        <label class="form-label">Category</label>
-        <input type="number" class="form-control" formControlName="cate_id">
-      </div> -->
       <div class="mb-3">
+
         <label class="form-label">Category</label>
         <select class="form-select" aria-label="Default select example" formControlName="cate_id">
           <option selected disabled>Open this select menu</option>
@@ -48,7 +44,9 @@
           (click)="onSubmit()">Submit</button>
       </div>
     </form>
+
     <br>
+    
     <button type="button" class="btn btn-primary" routerLink="/view-expense" routerLinkActive="active"
       style="margin-bottom: 200px;">Back</button>
   </div>

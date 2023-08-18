@@ -16,7 +16,6 @@ export class TransactionFormComponent {
     this.transactionForm = fb.group({
       user_id: ['1'],
       cate_id: ['', [Validators.required]],
-      // expense_cate_name: ['', [Validators.required]],
       description: ['', [Validators.required]],
       amount: ['', [Validators.required]],
       expense_date: ['', [Validators.required]],

@@ -31,12 +31,10 @@
 
 .btn-gap {
   width: 50px;
-  /* Adjust the gap width as needed */
 }
 
 .delete-button {
   background-color: #dc3545;
-  /* Apply desired color for delete button */
   border-color: #dc3545;
   margin-left: 10px;
 }
@@ -47,8 +45,8 @@ td {
 }
 
 .rounded-table {
-  border-radius: 10px; /* Adjust the border radius value as needed */
-  overflow: hidden; /* Ensure content within rounded corners is properly contained */
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 

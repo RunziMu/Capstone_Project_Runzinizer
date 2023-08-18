@@ -27,8 +27,6 @@ export class RegisterComponent {
   register() {
     let formData = new FormData();
 
-    // Adds all the form fields into formData object
-
     for (let key in this.registerForm.value) {
       formData.append(key, this.registerForm.value[key]);
     }

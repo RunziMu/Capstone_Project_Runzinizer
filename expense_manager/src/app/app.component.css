@@ -22,17 +22,13 @@ mat-sidenav-content {
 }
 
 a {
-  /* border: solid 1px grey; */
   text-decoration: none;
   color: rgb(189, 189, 189);
   font-size: 20px;
   font-family: 'Quicksand', sans-serif;
-  ;
 }
 
 mat-list-item {
-  /* border: solid 1px rgb(189, 189, 189);
-  border-radius: 10px; */
   width: 75%;
   margin: 40px auto;
 }

@@ -28,7 +28,6 @@ export class IncomeComponent {
       this.incomeService.deleteIncome(incomeId).subscribe(
         () => {
           console.log('Income deleted successfully');
-          // Update the incomes list after deletion
           this.income = this.income.filter(expense => expense.id !== incomeId);
         },
         (error) => {

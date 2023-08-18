@@ -21,10 +21,6 @@ export class UserService {
     return data ? JSON.parse(data) : null; //JSON.parse converts string to an object
   }
 
-  // getUserProfile() {
-  //   return this.httpClient.get<Iuser[]>('http://localhost:3000/user');
-  // }
-
   isAuthenticated() {
     return (this.getUserData() !== null) ? true : false;
   }

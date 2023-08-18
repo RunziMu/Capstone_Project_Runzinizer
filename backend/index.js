@@ -273,7 +273,7 @@ app.put('/expense/:expense_id', function (req, res) {
 
 // Add expense from specific user_id.
 app.post('/expense/:user_id', function (req, res) {
-    let expenseData = req.body; // aware: body
+    let expenseData = req.body; 
     Expense.create(expenseData).then((result) => {
         res.status(200).send(result);
     }).catch((err) => {
@@ -283,8 +283,8 @@ app.post('/expense/:user_id', function (req, res) {
 
 // Delete an expense row
 app.delete('/expense/:expense_id', function (req, res) {
-    let expenseId = parseInt(req.params.expense_id); // aware: params (you must to do, mandatory... not optional) Remember to ParseInt.
-    Expense.findByPk(expenseId).then((result) => { // find the expense based on the expenseID
+    let expenseId = parseInt(req.params.expense_id);
+    Expense.findByPk(expenseId).then((result) => {
         if (result) {
             result.destroy().then(() => {
                 res.status(200).send(result);
@@ -360,8 +360,8 @@ app.put('/income/:income_id', function (req, res) {
 
 // Delete an income row
 app.delete('/income/:income_id', function (req, res) {
-    let incomeId = parseInt(req.params.income_id); // aware: params (you must to do, mandatory... not optional) Remember to ParseInt.
-    Income.findByPk(incomeId).then((result) => { // find the income based on the incomeID
+    let incomeId = parseInt(req.params.income_id); 
+    Income.findByPk(incomeId).then((result) => { 
         if (result) {
             result.destroy().then(() => {
                 res.status(200).send(result);

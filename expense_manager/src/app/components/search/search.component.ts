@@ -10,9 +10,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  categories: any[] = []; // Replace with the type of your category object
+  categories: any[] = [];
   selectedCategoryId: number | null = null;
-  expenses: any[] = []; // Replace with the type of your expense object
+  expenses: any[] = []; 
   constructor(private expenseService: ExpenseService, private categoryService: CategoryService, private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.loadCategories();

@@ -1,18 +1,10 @@
 <div class="row" style="margin-top: 10px;">
   <div class="col-4 offset-4">
-    <!-- <h1 *ngIf="isEdit; else createTaskTitle" style="text-align: center;">Edit Transaction</h1>
-    <ng-template #createTaskTitle> -->
     <h1 style="text-align: center;font-weight: lighter;">Add Expense</h1>
-    <!-- </ng-template> -->
     <form [formGroup]="transactionForm"
       style="border: solid 1px gray; border-radius: 10px; padding: 20px; margin-top: 20px;background-color: rgb(255, 255, 255);">
-      <!--
       <div class="mb-3">
-        <label class="form-label">Category</label>
-        <input type="number" class="form-control" formControlName="cate_id">
-      </div> -->
-
-      <div class="mb-3">
+        
         <label class="form-label">Category</label>
         <select class="form-select" aria-label="Default select example" formControlName="cate_id">
           <option selected disabled>Open this select menu</option>
@@ -30,25 +22,6 @@
           <option value="12">Utilities</option>
         </select>
       </div>
-
-      <!-- <div class="mb-3">
-        <label class="form-label">Category</label>
-        <select class="form-select" aria-label="Default select example" formControlName="expense_cate_name">
-          <option selected disabled>Open this select menu</option>
-          <option value="Housing">Housing</option>
-          <option value="Transportation">Transportation</option>
-          <option value="Food & Groceries">Food & Groceries</option>
-          <option value="Healthcare">healthcare</option>
-          <option value="Personal care">Personal care</option>
-          <option value="Entertainment">Entertainment</option>
-          <option value="Debts & Loans">Debts & Loans</option>
-          <option value="Savings & Investments">Savings & Investments</option>
-          <option value="Education">Education</option>
-          <option value="Gifts & Donations">Gifts & Donations</option>
-          <option value="Travel">Travel</option>
-          <option value="Utilities">Utilities</option>
-        </select>
-      </div> -->
 
       <div class="mb-3">
         <label class="form-label">Description</label>
