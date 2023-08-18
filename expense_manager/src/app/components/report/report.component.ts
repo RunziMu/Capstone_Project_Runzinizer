@@ -117,7 +117,6 @@ export class ReportComponent {
         highestCategory = categoryTotal.category;
       }
     });
-
     return highestCategory;
   }
 
