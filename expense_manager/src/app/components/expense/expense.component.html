@@ -1,4 +1,4 @@
-<div style="width:60%; margin: auto; font-weight: lighter;" class="recent_trans">
+<div style="width:50%; margin: auto; font-weight: lighter;" class="recent_trans">
   <p class="title">Your Expenses:</p>
   <table class="table rounded-table">
     <thead>
@@ -17,20 +17,25 @@
         <td>${{expense_item.amount}}</td>
         <td>{{expense_item.expense_date| date}}</td>
         <td>
-          <button type="button" class="btn btn-warning" [routerLink]="['/edit-transaction/',expense_item.id]"
-            routerLinkActive="active">Edit</button>
-          <button type="button" class="btn btn-primary delete-button"
-            (click)="deleteExpense(expense_item.id)">Delete</button>
+          <div class="d-flex flex-column flex-sm-row">
+            <button type="button" class="btn btn-warning mb-2 mb-sm-0 mr-sm-2"
+              [routerLink]="['/edit-transaction/',expense_item.id]" routerLinkActive="active">Edit</button>
+            <button type="button" class="btn btn-primary delete-button mb-2 mb-sm-0 mr-sm-2"
+              (click)="deleteExpense(expense_item.id)">Delete</button>
+          </div>
         </td>
       </tr>
     </tbody>
     <br>
-    <p style="font-size: 16px;">Your total expense: <span style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
+    <p style="font-size: 16px;">Your total expense: <span
+        style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
     <hr>
-    <button type="button" class="btn btn-primary" routerLink="/home" routerLinkActive="active"
-      style="margin-left: 5px;">Back</button>
-    <button type="button" class="btn btn-success" routerLink="/add-expense" routerLinkActive="active"
-      style="margin-left: 5px;">Add
-      Expense</button>
+    <div class="d-flex flex-column flex-sm-row">
+      <button type="button" class="btn btn-primary mb-2 mb-sm-0 mr-sm-2" routerLink="/home" routerLinkActive="active"
+        style="margin-left: 5px;">Back</button>
+      <button type="button" class="btn btn-success mb-2 mb-sm-0 mr-sm-2" routerLink="/add-expense"
+        routerLinkActive="active" style="margin-left: 5px;">Add
+        Expense</button>
+    </div>
   </table>
 </div>

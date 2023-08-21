@@ -83,3 +83,16 @@ h1 {
   border-radius: 15px;
   border-color: white;
 }
+
+@media (max-width: 767px) {
+  .card-number {
+    font-size: 3rem;
+    font-weight: lighter;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-number {
+    font-size: 2rem;
+  }
+}
