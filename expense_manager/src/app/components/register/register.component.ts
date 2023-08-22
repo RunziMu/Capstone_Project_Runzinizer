@@ -16,8 +16,23 @@ export class RegisterComponent {
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(10), this.validatePassword]],
     });
+  }
+
+  validatePassword(control: any) {
+    const password = control.value;
+    const specialCharacterPattern = /[!@#$%^&*?]+/;
+
+    if (password.length < 10) {
+      return { 'passwordLength': true };
+    }
+
+    if (!specialCharacterPattern.test(password)) {
+      return { 'passwordSpecialCharacter': true };
+    }
+
+    return null;
   }
 
   onChange(event: any) {

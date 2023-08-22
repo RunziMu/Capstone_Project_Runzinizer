@@ -19,6 +19,18 @@
   <div class="mb-3">
     <label class="form-label">Password</label>
     <input type="password" class="form-control" formControlName="password">
+    <div
+      *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+      <div *ngIf="registerForm.get('password')?.hasError('required')" class="text-danger">
+        Password is required.
+      </div>
+      <div *ngIf="registerForm.get('password')?.hasError('minlength')" class="text-danger">
+        Password must be at least 10 characters long.
+      </div>
+      <div *ngIf="registerForm.get('password')?.hasError('passwordSpecialCharacter')" class="text-danger">
+        Password must contain at least one special character (! @ # $ % ^ & * ?).
+      </div>
+    </div>
   </div>
 
   <div class="mb-3">
@@ -27,6 +39,9 @@
       style="font-weight: lighter;">
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid" style="font-weight: lighter;">Register</button>
+  <p class="accepted-format">All fields are required; Accepted picture format: img, png, jpeg. </p>
+
+  <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid"
+    style="font-weight: lighter;">Register</button>
 
 </form>
