@@ -16,7 +16,7 @@ export class RegisterComponent {
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(10), this.validatePassword]],
+      password: ['', [Validators.required, Validators.minLength(8), this.validatePassword]],
     });
   }
 
@@ -24,7 +24,7 @@ export class RegisterComponent {
     const password = control.value;
     const specialCharacterPattern = /[!@#$%^&*?]+/;
 
-    if (password.length < 10) {
+    if (password.length < 8) {
       return { 'passwordLength': true };
     }
 

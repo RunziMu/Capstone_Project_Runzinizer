@@ -25,7 +25,7 @@
         Password is required.
       </div>
       <div *ngIf="registerForm.get('password')?.hasError('minlength')" class="text-danger">
-        Password must be at least 10 characters long.
+        Password must be at least 8 characters long.
       </div>
       <div *ngIf="registerForm.get('password')?.hasError('passwordSpecialCharacter')" class="text-danger">
         Password must contain at least one special character (! @ # $ % ^ & * ?).
