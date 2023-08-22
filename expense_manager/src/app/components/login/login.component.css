@@ -1,7 +1,12 @@
-form{
+form {
   width: 50%;
   margin: auto;
   margin-top: 100px;
   font-weight: lighter;
   margin-bottom: 510px;
+}
+
+p {
+  font-size: 40px;
+  padding-bottom: 10px;
 }

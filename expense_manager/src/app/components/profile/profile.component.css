@@ -3,7 +3,12 @@
 }
 
 table {
-  width: 50%;
+  width: 40%;
   margin: 25px auto;
   margin-bottom: 650px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+button{
+margin-left: 3px;
 }

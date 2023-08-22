@@ -5,3 +5,8 @@ form{
   font-weight: lighter;
   margin-bottom: 260px;
 }
+
+p {
+  font-size: 40px;
+  padding-bottom: 10px;
+}
