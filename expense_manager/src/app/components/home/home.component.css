@@ -3,7 +3,7 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .recent_trans p {
@@ -21,7 +21,7 @@
 }
 
 .recent_trans {
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 th,
@@ -31,5 +31,12 @@ td {
 
 .rounded-table {
   border-radius: 10px;
-  overflow: hidden; 
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .recent_trans td:nth-child(3) span {
+    display: inline-block;
+    white-space: nowrap;
+  }
 }

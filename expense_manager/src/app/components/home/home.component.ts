@@ -1,6 +1,6 @@
 import { ExpenseService } from 'src/app/services/expense.service';
 import { Iexpense } from './../../interfaces/iexpense';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Iincome } from 'src/app/interfaces/iincome';
 import { IncomeService } from 'src/app/services/income.service';
@@ -13,6 +13,11 @@ import { IncomeService } from 'src/app/services/income.service';
 export class HomeComponent {
   @Input() expense!: Iexpense[];
   @Input() income!: Iincome[];
+  isLargeScreen = true;
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.isLargeScreen = window.innerWidth > 768;
+  }
   constructor(private expenseService: ExpenseService, private route: ActivatedRoute, private incomeService: IncomeService) {
     expenseService.getExpense().subscribe({
       next: (results) => {

@@ -10,10 +10,14 @@
 
 .rounded-table {
   border-radius: 10px;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 th,
 td {
   text-align: center;
+}
+
+.title{
+  font-size: 25px;
 }

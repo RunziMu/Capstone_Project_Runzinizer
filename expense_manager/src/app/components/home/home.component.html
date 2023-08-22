@@ -1,5 +1,6 @@
 <div style="width:50%; margin: auto; font-weight: lighter;" class="recent_trans">
   <p class="title">Recent Expenses:</p>
+  <hr>
   <table class="table rounded-table">
     <thead>
       <tr>
@@ -12,14 +13,20 @@
       <tr>
         <td>{{expense_item.description}}</td>
         <td>${{expense_item.amount}}</td>
-        <td>{{expense_item.expense_date| date}}</td>
+        <td>
+          <span *ngIf="isLargeScreen">{{expense_item.expense_date | date}}</span>
+          <span *ngIf="!isLargeScreen">{{expense_item.expense_date | date:'MM/yyyy'}}</span>
+        </td>
       </tr>
     </tbody>
-    <p>Total expense: <span style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
+    <p style="margin-top: 10px; font-size: 16px;">Total expense: <span
+        style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
     <button type="button" class="btn btn-primary" routerLink="/view-expense" routerLinkActive="active"
       style="margin-left: 5px;">View All</button>
   </table>
+  <br>
   <p class="title">Recent Income:</p>
+  <hr>
   <table class="table rounded-table">
     <thead>
       <tr>
@@ -32,12 +39,16 @@
       <tr>
         <td>{{income_item.description}}</td>
         <td>${{income_item.amount}}</td>
-        <td>{{income_item.income_date| date}}</td>
+        <td>
+          <span *ngIf="isLargeScreen">{{income_item.income_date| date}}</span>
+          <span *ngIf="!isLargeScreen">{{income_item.income_date| date:'MM/yyyy'}}</span>
+        </td>
       </tr>
     </tbody>
-    <p>Total Income: <span style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
+    <p style="margin-top: 10px; font-size: 16px;">Total Income: <span
+        style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
     <button type="button" class="btn btn-primary" routerLink="/view-income" routerLinkActive="active"
-      style="margin-bottom: 30px;margin-left: 5px;">View All</button>
+      style="margin-left: 5px;">View All</button>
   </table>
   <hr>
   <p style="font-size: 18px;">Total Balance: <span
