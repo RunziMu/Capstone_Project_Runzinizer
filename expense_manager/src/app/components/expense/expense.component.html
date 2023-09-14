@@ -1,41 +1,45 @@
 <div style="width:50%; margin: auto; font-weight: lighter;" class="recent_trans">
   <p class="title">Your Expenses:</p>
   <hr>
-  <table class="table rounded-table">
-    <thead>
-      <tr>
-        <th scope="col">Category</th>
-        <th scope="col">Description</th>
-        <th scope="col">Amount</th>
-        <th scope="col">Date</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let expense_item of expense">
-      <tr>
-        <td>{{expense_item.category.cate_name}}</td>
-        <td>{{expense_item.description}}</td>
-        <td>${{expense_item.amount}}</td>
-        <td>{{expense_item.expense_date| date}}</td>
-        <td>
-          <div class="d-flex flex-column flex-sm-row">
-            <button type="button" class="btn btn-warning mb-2 mb-sm-0 mr-sm-2"
-              [routerLink]="['/edit-transaction/',expense_item.id]" routerLinkActive="active">Edit</button>
-            <button type="button" class="btn btn-primary delete-button"
-              (click)="deleteExpense(expense_item.id)">Delete</button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-    <br>
-    <p style="font-size: 16px;">Your total expense: <span
-        style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
-    <hr>
-    <div class="d-flex flex-column flex-sm-row">
-      <button type="button" class="btn btn-primary mb-2 mb-sm-0 mr-sm-2" routerLink="/home" routerLinkActive="active"
-        style="margin-left: 5px;">Back</button>
-      <button type="button" class="btn btn-success" routerLink="/add-expense" routerLinkActive="active"
-        style="margin-left: 5px;">Add Expense</button>
-    </div>
-  </table>
+  <div class="table-container">
+    <table class="table rounded-table">
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">Description</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let expense_item of expense">
+        <tr>
+          <td>{{expense_item.category.cate_name}}</td>
+          <td>{{expense_item.description}}</td>
+          <td>${{expense_item.amount}}</td>
+          <td>{{expense_item.expense_date| date}}</td>
+          <td>
+            <div class="d-flex flex-column flex-sm-row">
+              <button type="button" class="btn btn-warning mb-2 mb-sm-0 mr-sm-2"
+                [routerLink]="['/edit-transaction/',expense_item.id]" routerLinkActive="active">Edit</button>
+              <button type="button" class="btn btn-primary delete-button"
+                (click)="deleteExpense(expense_item.id)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <p style="font-size: 16px;">Your total expense: <span
+      style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
+  <hr>
+  <div class="d-flex flex-column flex-sm-row">
+    <button type="button" class="btn btn-primary mb-2 mb-sm-0 mr-sm-2" routerLink="/home" routerLinkActive="active"
+      style="margin-left: 5px;">Back</button>
+    <button type="button" class="btn btn-success" routerLink="/add-expense" routerLinkActive="active"
+      style="margin-left: 5px;">Add Expense</button>
+  </div>
+  <!-- </table> -->
+  <!-- </div> -->
 </div>
