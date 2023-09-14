@@ -4,7 +4,7 @@ This is the capstone project I made as the completion of Full Stack Web Devlopme
 This web app is called **Runzinizer** as an combination of my firstname plus Organizer :)
 
 Runzinizer is a web app that keep tracks of user's expenses and income, like a mini version of expense manager.
-Runzinizer contains six tabs, each tab contributes its own function.
+Runzinizer contains six responsive tabs, each tab contributes its own function.
 
 **Register Tab**
 Users will be asked to register a new account with Runzinizer if it's their first time use.
