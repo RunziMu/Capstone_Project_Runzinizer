@@ -1,12 +1,16 @@
 form {
-  width: 50%;
+  width: 30%;
   margin: auto;
   margin-top: 100px;
   font-weight: lighter;
   margin-bottom: 510px;
+  border: solid 1px white;
+  border-radius: 10pt;
+  padding: 30px;
+  background-color: white;
 }
 
 p {
-  font-size: 40px;
+  font-size: 30px;
   padding-bottom: 10px;
 }

@@ -20,9 +20,9 @@
           <td>{{expense_item.expense_date| date}}</td>
           <td>
             <div class="d-flex flex-column flex-sm-row">
-              <button type="button" class="btn btn-warning mb-2 mb-sm-0 mr-sm-2"
+              <button type="button" class="btn btn-outline-warning mb-2 mb-sm-0 mr-sm-2"
                 [routerLink]="['/edit-transaction/',expense_item.id]" routerLinkActive="active">Edit</button>
-              <button type="button" class="btn btn-primary delete-button"
+              <button type="button" class="btn btn-outline-danger delete-button"
                 (click)="deleteExpense(expense_item.id)">Delete</button>
             </div>
           </td>
@@ -35,9 +35,9 @@
       style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
   <hr>
   <div class="d-flex flex-column flex-sm-row">
-    <button type="button" class="btn btn-primary mb-2 mb-sm-0 mr-sm-2" routerLink="/home" routerLinkActive="active"
+    <button type="button" class="btn btn-outline-primary mb-2 mb-sm-0 mr-sm-2" routerLink="/home" routerLinkActive="active"
       style="margin-left: 5px;">Back</button>
-    <button type="button" class="btn btn-success" routerLink="/add-expense" routerLinkActive="active"
+    <button type="button" class="btn btn-outline-success" routerLink="/add-expense" routerLinkActive="active"
       style="margin-left: 5px;">Add Expense</button>
   </div>
   <!-- </table> -->

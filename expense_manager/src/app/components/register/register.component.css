@@ -1,9 +1,13 @@
 form{
-  width: 50%;
+  width: 40%;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 60px;
   font-weight: lighter;
   margin-bottom: 260px;
+  border: solid 1px white;
+  border-radius: 10pt;
+  padding: 30px;
+  background-color: white;
 }
 
 p {

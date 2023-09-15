@@ -14,7 +14,7 @@
       </select>
     </div>
     <br>
-    <button type="submit" class="btn btn-primary">Filter</button>
+    <button type="submit" class="btn btn-outline-success">Apply</button>
   </form>
   <hr>
   <div class="mt-5" *ngIf="expenses.length > 0; else noExpensesMessage">
@@ -42,5 +42,5 @@
   <ng-template #noExpensesMessage>
     <p class="mt-3">No expenses found for this category.</p>
   </ng-template>
-  <button type="button" class="btn btn-primary" routerLink="/report" routerLinkActive="active" style="margin-bottom: 300px;">Back</button>
+  <button type="button" class="btn btn-outline-primary" routerLink="/report" routerLinkActive="active" style="margin-bottom: 300px;">Back</button>
 </div>

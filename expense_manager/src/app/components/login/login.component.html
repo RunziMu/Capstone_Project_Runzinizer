@@ -1,6 +1,6 @@
 <br>
 <form [formGroup]="loginForm" (ngSubmit)="login()">
-  <p>Log In</p>
+  <p>Welcome Back!</p>
   <hr>
   <div class="mb-3">
     <label class="form-label">Email</label>
@@ -11,7 +11,9 @@
     <label class="form-label">Password</label>
     <input type="password" class="form-control" formControlName="password">
   </div>
-
-  <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid" style="font-weight: lighter;">Log
-    In</button>
+  <!-- <div class="text-center"> -->
+    <button type="submit" class="btn btn-outline-primary" [disabled]="loginForm.invalid"
+      style="font-weight: lighter; margin-top: 5px;">Log
+      In</button>
+  <!-- </div> -->
 </form>
