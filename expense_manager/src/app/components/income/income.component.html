@@ -14,7 +14,7 @@
       <tbody *ngFor="let income_item of income">
         <tr>
           <td>{{income_item.description}}</td>
-          <td>${{income_item.amount}}</td>
+          <td style="color: green; font-weight: bold;">${{income_item.amount | number}}</td>
           <td>{{income_item.income_date| date}}</td>
           <td>
             <div class="d-flex flex-column flex-sm-row">
@@ -30,7 +30,7 @@
   </div>
   <br>
   <p style="font-size: 16px;">Your total Income: <span
-      style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
+      style="color: green; font-weight: bold;">${{calculateIncomeTotal() | number}}</span></p>
   <hr>
   <div class="d-flex flex-column flex-sm-row">
     <button type="button" class="btn btn-outline-primary mb-2 mb-sm-0 mr-sm-2" routerLink="/home" routerLinkActive="active"

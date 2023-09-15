@@ -5,7 +5,7 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title">Total Income</h2>
-          <h1 style="color: green;" class="card-number">${{calculateIncomeTotal()}}</h1>
+          <h1 style="color: green;" class="card-number">${{calculateIncomeTotal()|number}}</h1>
           <a routerLink="/view-income"><button class="btn btn-outline-primary">View all</button></a>
         </div>
       </div>
@@ -15,7 +15,7 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title">Total Expense</h2>
-          <h1 style="color: salmon;" class="card-number">${{calculateExpenseTotal()}}</h1>
+          <h1 style="color: salmon;" class="card-number">${{calculateExpenseTotal()|number}}</h1>
           <a routerLink="/view-expense"><button class="btn btn-outline-primary">View all</button></a>
         </div>
       </div>
@@ -25,9 +25,9 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title">Total Balance</h2>
-            <span [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">
-              <h1 class="card-number">${{calculateBalance()}}</h1>
-            </span>
+          <span [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">
+            <h1 class="card-number">${{calculateBalance()|number}}</h1>
+          </span>
           <a routerLink="/home"><button class="btn btn-outline-primary">View all</button></a>
         </div>
       </div>
@@ -52,7 +52,7 @@
       [ngClass]="{'highest-percentage-row': isHighestPercentage(i)}">
       <tr>
         <td>{{ getCategoryName(categoryTotal.category) }}</td>
-        <td>${{ categoryTotal.totalExpense }}</td>
+        <td style="color: rgb(246, 67, 47); font-weight: bold;">${{ categoryTotal.totalExpense | number }}</td>
         <td>{{ calculatePercentage(categoryTotal.totalExpense) | number:'1.0-0' }}%</td>
         <td><a [routerLink]="['/search', categoryTotal.category]">
             <button class="btn btn-outline-primary">View</button></a>

@@ -12,7 +12,7 @@
     <tbody *ngFor="let expense_item of expense | slice:-5">
       <tr>
         <td>{{expense_item.description}}</td>
-        <td>${{expense_item.amount}}</td>
+        <td style="color: rgb(246, 67, 47); font-weight: bold;">${{expense_item.amount | number}}</td>
         <td>
           <span *ngIf="isLargeScreen">{{expense_item.expense_date | date}}</span>
           <span *ngIf="!isLargeScreen">{{expense_item.expense_date | date:'MM/yyyy'}}</span>
@@ -20,7 +20,7 @@
       </tr>
     </tbody>
     <p style="margin-top: 10px; font-size: 16px;">Total expense: <span
-        style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
+        style="color: rgb(246, 67, 47);">${{calculateExpenseTotal() | number}}</span></p>
     <button type="button" class="btn btn-outline-primary" routerLink="/view-expense" routerLinkActive="active"
       style="margin-left: 5px;">View All</button>
   </table>
@@ -38,7 +38,7 @@
     <tbody *ngFor="let income_item of income | slice:-5">
       <tr>
         <td>{{income_item.description}}</td>
-        <td>${{income_item.amount}}</td>
+        <td style="color: green;font-weight: bold;">${{income_item.amount | number}}</td>
         <td>
           <span *ngIf="isLargeScreen">{{income_item.income_date| date}}</span>
           <span *ngIf="!isLargeScreen">{{income_item.income_date| date:'MM/yyyy'}}</span>
@@ -46,11 +46,11 @@
       </tr>
     </tbody>
     <p style="margin-top: 10px; font-size: 16px;">Total Income: <span
-        style="color: green; font-weight: bold;">${{calculateIncomeTotal()}}</span></p>
+        style="color: green; font-weight: bold;">${{calculateIncomeTotal() | number}}</span></p>
     <button type="button" class="btn btn-outline-primary" routerLink="/view-income" routerLinkActive="active"
       style="margin-left: 5px;">View All</button>
   </table>
   <hr>
   <p style="font-size: 18px;">Total Balance: <span
-      [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">${{calculateBalance()}}</span></p>
+      [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">${{calculateBalance() | number}}</span></p>
 </div>

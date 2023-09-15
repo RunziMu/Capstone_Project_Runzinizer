@@ -16,7 +16,7 @@
         <tr>
           <td>{{expense_item.category.cate_name}}</td>
           <td>{{expense_item.description}}</td>
-          <td>${{expense_item.amount}}</td>
+          <td style="color: rgb(246, 67, 47); font-weight: bold;">${{expense_item.amount | number}}</td>
           <td>{{expense_item.expense_date| date}}</td>
           <td>
             <div class="d-flex flex-column flex-sm-row">
@@ -32,7 +32,7 @@
   </div>
   <br>
   <p style="font-size: 16px;">Your total expense: <span
-      style="color: salmon; font-weight: bold;">${{calculateExpenseTotal()}}</span></p>
+      style="color: rgb(246, 67, 47); font-weight: bold;">${{calculateExpenseTotal() | number}}</span></p>
   <hr>
   <div class="d-flex flex-column flex-sm-row">
     <button type="button" class="btn btn-outline-primary mb-2 mb-sm-0 mr-sm-2" routerLink="/home" routerLinkActive="active"
