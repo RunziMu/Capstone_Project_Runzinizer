@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class RegisterComponent {
   registerForm: FormGroup;
   file = null;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
     this.registerForm = formBuilder.group({
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
@@ -54,7 +55,8 @@ export class RegisterComponent {
       next: (result) => {
         console.log(result);
         alert('User was created successfully');
-        window.location.reload();
+        this.router.navigate(['/login']);
+        // window.location.reload();
       },
       error: (err) => {
         console.log(err);

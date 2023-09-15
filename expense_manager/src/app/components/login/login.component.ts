@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
     this.loginForm = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -22,9 +23,10 @@ export class LoginComponent {
 
     this.userService.loginUser(formData).subscribe({
       next: (result) => {
-        localStorage.setItem("currentUser", JSON.stringify(result)); 
+        localStorage.setItem("currentUser", JSON.stringify(result));
         alert('Welcome Back!');
-        window.location.reload();
+        this.router.navigate(["/home"]);
+        // window.location.reload();
       },
       error: (err) => {
         alert(err.error);
