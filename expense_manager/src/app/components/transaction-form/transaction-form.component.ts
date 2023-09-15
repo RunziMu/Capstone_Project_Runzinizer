@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { IncomeService } from 'src/app/services/income.service';
 import { UserService } from 'src/app/services/user.service';
@@ -12,9 +12,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class TransactionFormComponent {
   transactionForm: FormGroup;
-  constructor(private fb: FormBuilder, private expenseService: ExpenseService, private incomeService: IncomeService, private userService: UserService, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private expenseService: ExpenseService, private incomeService: IncomeService, private userService: UserService, private route: ActivatedRoute, private router: Router) {
     this.transactionForm = fb.group({
-      user_id: ['1'],
+      user_id: ['21'],
       cate_id: ['', [Validators.required]],
       description: ['', [Validators.required]],
       amount: ['', [Validators.required]],
@@ -24,14 +24,16 @@ export class TransactionFormComponent {
 
   onSubmit() {
     this.createExpense();
+    // this.router.navigate(['/view-expense']);
   }
 
   createExpense() {
     this.expenseService.createExpense(this.transactionForm.value).subscribe({
       next: (result) => {
         alert('New expense was created successfully');
+        this.router.navigate(['/view-expense']);
         this.transactionForm.reset();
-        window.location.reload();
+        // window.location.reload();
       },
       error: (err) => {
         console.log(err);
@@ -40,4 +42,3 @@ export class TransactionFormComponent {
     });
   }
 }
-
