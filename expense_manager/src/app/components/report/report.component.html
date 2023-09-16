@@ -5,6 +5,7 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title">Total Income</h2>
+          <hr>
           <h1 style="color: green;" class="card-number">${{calculateIncomeTotal()|number}}</h1>
           <a routerLink="/view-income"><button class="btn btn-outline-primary">View all</button></a>
         </div>
@@ -15,6 +16,7 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title">Total Expense</h2>
+          <hr>
           <h1 style="color: salmon;" class="card-number">${{calculateExpenseTotal()|number}}</h1>
           <a routerLink="/view-expense"><button class="btn btn-outline-primary">View all</button></a>
         </div>
@@ -25,6 +27,7 @@
       <div class="card">
         <div class="card-body">
           <h2 class="card-title">Total Balance</h2>
+          <hr>
           <span [ngClass]="{'positive':calculateBalance()>=0, 'negative':calculateBalance()<0}">
             <h1 class="card-number">${{calculateBalance()|number}}</h1>
           </span>
@@ -39,27 +42,29 @@
 <div>
   <!-- <h1>Expense Report</h1> -->
   <br>
-  <table class="table category-table rounded-table">
-    <thead>
-      <tr>
-        <th scope="col">Category</th>
-        <th scope="col">Total Amount</th>
-        <th scope="col">Percentage</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let categoryTotal of calculateCategoryTotals() let i = index"
-      [ngClass]="{'highest-percentage-row': isHighestPercentage(i)}">
-      <tr>
-        <td>{{ getCategoryName(categoryTotal.category) }}</td>
-        <td style="color: rgb(246, 67, 47); font-weight: bold;">${{ categoryTotal.totalExpense | number }}</td>
-        <td>{{ calculatePercentage(categoryTotal.totalExpense) | number:'1.0-0' }}%</td>
-        <td><a [routerLink]="['/search', categoryTotal.category]">
-            <button class="btn btn-outline-primary">View</button></a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="table category-table rounded-table">
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col">Percentage</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let categoryTotal of calculateCategoryTotals() let i = index"
+        [ngClass]="{'highest-percentage-row': isHighestPercentage(i)}">
+        <tr>
+          <td>{{ getCategoryName(categoryTotal.category) }}</td>
+          <td style="color: rgb(246, 67, 47); font-weight: bold;">${{ categoryTotal.totalExpense | number }}</td>
+          <td>{{ calculatePercentage(categoryTotal.totalExpense) | number:'1.0-0' }}%</td>
+          <td><a [routerLink]="['/search', categoryTotal.category]">
+              <button class="btn btn-outline-primary">View</button></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <br>
 <br>
