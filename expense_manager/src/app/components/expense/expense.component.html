@@ -17,7 +17,11 @@
           <td>{{expense_item.category.cate_name}}</td>
           <td>{{expense_item.description}}</td>
           <td style="color: rgb(246, 67, 47); font-weight: bold;">${{expense_item.amount | number}}</td>
-          <td>{{expense_item.expense_date| date}}</td>
+          <!-- <td>{{expense_item.expense_date| date}}</td> -->
+          <td>
+            <span *ngIf="isLargeScreen">{{expense_item.expense_date | date}}</span>
+            <span *ngIf="!isLargeScreen">{{expense_item.expense_date | date:'dd/MM'}}</span>
+          </td>
           <td>
             <div class="d-flex flex-column flex-sm-row">
               <button type="button" class="btn btn-outline-warning mb-2 mb-sm-0 mr-sm-2"
