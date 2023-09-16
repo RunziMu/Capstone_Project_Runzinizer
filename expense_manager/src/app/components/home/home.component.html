@@ -9,7 +9,7 @@
         <th scope="col">Date</th>
       </tr>
     </thead>
-    <tbody *ngFor="let expense_item of expense | slice:-5">
+    <tbody *ngFor="let expense_item of expense | slice:-4">
       <tr>
         <td>{{expense_item.description}}</td>
         <td style="color: rgb(246, 67, 47); font-weight: bold;">${{expense_item.amount | number}}</td>
@@ -35,7 +35,7 @@
         <th scope="col">Date</th>
       </tr>
     </thead>
-    <tbody *ngFor="let income_item of income | slice:-5">
+    <tbody *ngFor="let income_item of income | slice:-4">
       <tr>
         <td>{{income_item.description}}</td>
         <td style="color: green;font-weight: bold;">${{income_item.amount | number}}</td>
