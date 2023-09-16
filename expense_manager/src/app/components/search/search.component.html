@@ -15,9 +15,11 @@
     </div>
     <br>
     <button type="submit" class="btn btn-outline-success">Apply</button>
+    <button type="button" class="btn btn-outline-warning" (click)="resetFilters()"
+      style="margin-left: 5px;">Reset</button>
   </form>
   <hr>
-  <div class="mt-5" *ngIf="expenses.length > 0; else noExpensesMessage">
+  <div class="mt-5" *ngIf="selectedCategoryId !== null && expenses.length > 0; else noExpensesMessage">
     <h2>Expenses for selected category:</h2>
     <table class="table  rounded-table">
       <thead>

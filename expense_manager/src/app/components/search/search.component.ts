@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SearchComponent implements OnInit {
   categories: any[] = [];
   selectedCategoryId: number | null = null;
-  expenses: any[] = []; 
+  expenses: any[] = [];
   constructor(private expenseService: ExpenseService, private categoryService: CategoryService, private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.loadCategories();
@@ -21,6 +21,10 @@ export class SearchComponent implements OnInit {
       if (categoryId) {
         this.selectedCategoryId = +categoryId;
         this.loadExpensesForCategory(this.selectedCategoryId);
+      } else {
+        // No categoryId in the URL, reset to null
+        this.selectedCategoryId = null;
+        this.expenses = [];
       }
     });
   }
@@ -46,6 +50,7 @@ export class SearchComponent implements OnInit {
       }
     );
   }
+
   onFilterSubmit(): void {
     if (this.selectedCategoryId === null) {
       this.expenses = [];
@@ -60,6 +65,7 @@ export class SearchComponent implements OnInit {
       }
     );
   }
+
   calculateTotalAmount(): number {
     let totalAmount = 0;
     for (const expense of this.expenses) {
@@ -67,5 +73,11 @@ export class SearchComponent implements OnInit {
     }
     return totalAmount;
   }
+
+  resetFilters(): void {
+    this.selectedCategoryId = null;
+    this.expenses = [];
+  }
+
 }
 
